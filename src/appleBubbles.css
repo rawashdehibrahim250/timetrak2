@@ -1,0 +1,235 @@
+/* Apple iMessage-style Chat Bubbles - Refined */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  gap: 2px;
+  max-width: 100%;
+}
+
+.chat-bubble {
+  position: relative;
+  max-width: 65%;
+  padding: 8px 12px;
+  border-radius: 18px;
+  margin-bottom: 1px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.chat-bubble.sent {
+  align-self: flex-end;
+  background: #0B93F6;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+  margin-right: 8px;
+}
+
+.chat-bubble.received {
+  align-self: flex-start;
+  background: #E5E5EA;
+  color: #000;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+  margin-left: 8px;
+}
+
+.chat-bubble.sent::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: -8px;
+  height: 13px;
+  width: 8px;
+  border-right: 8px solid #0B93F6;
+  border-bottom-left-radius: 16px 14px;
+  transform: translate(0, 0);
+}
+
+.chat-bubble.sent::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -8px;
+  width: 8px;
+  height: 13px;
+  background: inherit;
+  border-bottom-left-radius: 10px;
+  transform: translate(-2px, 0);
+}
+
+.chat-bubble.received::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: -8px;
+  height: 13px;
+  width: 8px;
+  border-left: 8px solid #E5E5EA;
+  border-bottom-right-radius: 16px 14px;
+  transform: translate(0, 0);
+}
+
+.chat-bubble.received::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: -8px;
+  width: 8px;
+  height: 13px;
+  background: inherit;
+  border-bottom-right-radius: 10px;
+  transform: translate(2px, 0);
+}
+
+/* Group consecutive messages from the same sender */
+.chat-bubble.consecutive {
+  margin-top: -1px;
+  margin-bottom: 1px;
+  border-radius: 18px;
+}
+
+.chat-bubble.consecutive.sent {
+  border-bottom-right-radius: 18px;
+}
+
+.chat-bubble.consecutive.received {
+  border-bottom-left-radius: 18px;
+}
+
+.chat-bubble.consecutive.sent::before,
+.chat-bubble.consecutive.sent::after,
+.chat-bubble.consecutive.received::before,
+.chat-bubble.consecutive.received::after {
+  display: none;
+}
+
+.chat-bubble.first-in-group {
+  margin-top: 8px;
+}
+
+.chat-bubble-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  font-size: 0.65rem;
+}
+
+.chat-bubble-user {
+  font-weight: 600;
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+.chat-bubble-time {
+  opacity: 0.7;
+  font-size: 0.6rem;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-top: 3px;
+}
+
+.chat-bubble-content {
+  margin-bottom: 1px;
+}
+
+.chat-bubble-duration {
+  text-align: right;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  margin-top: 1px;
+}
+
+.chat-bubble-actions {
+  position: absolute;
+  right: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chat-bubble:hover .chat-bubble-actions {
+  opacity: 1;
+}
+
+.chat-bubble-action-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble-action-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.chat-date-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 6px;
+  color: #8b91a0;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.chat-date-divider::before,
+.chat-date-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chat-date-divider::before {
+  margin-right: 10px;
+}
+
+.chat-date-divider::after {
+  margin-left: 10px;
+}
+
+/* Glass effect for chat bubbles */
+.glass-chat-bubble {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-chat-bubble.sent {
+  background: rgba(11, 147, 246, 0.85);
+}
+
+.glass-chat-bubble.received {
+  background: rgba(229, 229, 234, 0.85);
+}
+
+/* Time stamp for groups of messages */
+.message-timestamp {
+  text-align: center;
+  font-size: 0.6rem;
+  color: #8b91a0;
+  margin: 3px 0;
+  opacity: 0.8;
+} 

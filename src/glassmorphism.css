@@ -1,0 +1,199 @@
+/* Glassmorphism Effects - Enhanced Version */
+
+/* Background gradient for the entire app */
+.glassmorphism-bg {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.7) 0%, 
+    rgba(220, 240, 255, 0.5) 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(240, 250, 255, 0.5) 75%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  background-size: 400% 400%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Dynamic light effect */
+.glassmorphism-light {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(100, 180, 255, 0.3) 0%,
+    rgba(100, 180, 255, 0.15) 30%,
+    rgba(100, 180, 255, 0) 70%
+  );
+  transform: scale(var(--size, 100%));
+  transition: transform 0.15s ease-out;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+/* Add a second light for more dynamic effect */
+.glassmorphism-bg::after {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle at calc(100% - var(--x, 50%)) calc(100% - var(--y, 50%)),
+    rgba(255, 180, 100, 0.2) 0%,
+    rgba(255, 180, 100, 0) 60%
+  );
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    0 1px 2px rgba(255, 255, 255, 0.5) inset,
+    0 -1px 2px rgba(0, 0, 0, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  box-shadow: 
+    0 14px 28px rgba(31, 38, 135, 0.15),
+    0 10px 10px rgba(31, 38, 135, 0.1),
+    0 1px 2px rgba(255, 255, 255, 0.7) inset,
+    0 -1px 2px rgba(0, 0, 0, 0.05) inset;
+  transform: translateY(-3px);
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+/* Glass header effect */
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 4px 16px 0 rgba(31, 38, 135, 0.1),
+    0 1px 2px rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+  z-index: 10;
+}
+
+/* Glass table effect */
+.glass-table {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    0 1px 2px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.3s ease;
+}
+
+/* Glass table header */
+.glass-table-header {
+  background: rgba(249, 250, 251, 0.75);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glass button effect */
+.glass-button {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 2px 8px 0 rgba(31, 38, 135, 0.1),
+    0 1px 1px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.2s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 12px 0 rgba(31, 38, 135, 0.15),
+    0 1px 1px rgba(255, 255, 255, 0.7) inset;
+}
+
+.glass-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 1px 4px 0 rgba(31, 38, 135, 0.1),
+    0 1px 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+/* Glass input effect */
+.glass-input {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 2px 8px 0 rgba(31, 38, 135, 0.05),
+    0 1px 1px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 4px 12px 0 rgba(31, 38, 135, 0.1),
+    0 1px 1px rgba(255, 255, 255, 0.7) inset;
+  border-color: rgba(100, 180, 255, 0.5);
+} 

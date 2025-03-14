@@ -1,0 +1,159 @@
+/* Neon Card Styles with 3D Depth Effects */
+
+.neon-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease-in-out;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.neon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 150, 255, 0.4),
+              0 6px 6px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.neon-card:hover::before {
+  opacity: 1;
+}
+
+.neon-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transition: transform 0.5s ease-in-out;
+}
+
+.neon-card:hover::after {
+  transform: translateX(50%);
+}
+
+/* Blue variant */
+.neon-card.blue:hover {
+  box-shadow: 0 10px 20px rgba(11, 147, 246, 0.6),
+              0 6px 6px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Green variant */
+.neon-card.green:hover {
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.6),
+              0 6px 6px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Purple variant */
+.neon-card.purple:hover {
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.6),
+              0 6px 6px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Orange variant */
+.neon-card.orange:hover {
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.6),
+              0 6px 6px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Neon text effect */
+.neon-text {
+  transition: all 0.3s ease-in-out;
+}
+
+.neon-card:hover .neon-text.blue {
+  text-shadow: 0 0 8px rgba(11, 147, 246, 0.6);
+  color: #0B93F6;
+}
+
+.neon-card:hover .neon-text.green {
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  color: #10B981;
+}
+
+.neon-card:hover .neon-text.purple {
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  color: #8B5CF6;
+}
+
+.neon-card:hover .neon-text.orange {
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  color: #F59E0B;
+}
+
+/* Neon icon container */
+.neon-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.neon-card:hover .neon-icon {
+  transform: scale(1.1);
+}
+
+.neon-icon.blue {
+  background: rgba(11, 147, 246, 0.2);
+  color: #0B93F6;
+}
+
+.neon-card:hover .neon-icon.blue {
+  box-shadow: 0 0 15px rgba(11, 147, 246, 0.6);
+}
+
+.neon-icon.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.neon-card:hover .neon-icon.green {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+.neon-icon.purple {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8B5CF6;
+}
+
+.neon-card:hover .neon-icon.purple {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+}
+
+.neon-icon.orange {
+  background: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+}
+
+.neon-card:hover .neon-icon.orange {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+} 

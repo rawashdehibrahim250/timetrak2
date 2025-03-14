@@ -1,0 +1,211 @@
+/* Timeline Styles with iMessage Aesthetics */
+
+.timeline-container {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  margin-left: 16px;
+}
+
+/* Timeline item styling */
+.timeline-item {
+  min-height: 70px;
+  display: flex;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+/* Timeline separator styling */
+.timeline-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 24px;
+  margin-right: 8px;
+}
+
+/* Timeline dot styling */
+.timeline-dot {
+  margin: 0;
+  padding: 0;
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.timeline-dot.sent {
+  background-color: #0B93F6;
+}
+
+.timeline-dot.received {
+  background-color: #E5E5EA;
+}
+
+/* Timeline connector styling */
+.timeline-connector {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 2px;
+  flex-grow: 1;
+  margin: 4px 0;
+}
+
+/* Timeline content styling */
+.timeline-content {
+  padding: 0 16px 0 0;
+  margin: 4px 0;
+  flex-grow: 1;
+}
+
+/* Timeline opposite content styling */
+.timeline-opposite-content {
+  padding: 8px 16px;
+  margin: 4px 0;
+  text-align: right;
+  color: #8b91a0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  min-width: 80px;
+  max-width: 120px;
+  order: -1; /* Move to the left side */
+}
+
+/* iMessage bubble in timeline */
+.timeline-bubble {
+  position: relative;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: 18px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.timeline-bubble.sent {
+  background: rgba(11, 147, 246, 0.85);
+  color: white;
+  border-bottom-left-radius: 5px;
+}
+
+.timeline-bubble.received {
+  background: rgba(229, 229, 234, 0.85);
+  color: #000;
+  border-bottom-left-radius: 5px;
+}
+
+/* Glass effect for timeline bubbles */
+.glass-timeline-bubble {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-timeline-bubble.sent {
+  background: rgba(11, 147, 246, 0.85);
+}
+
+.glass-timeline-bubble.received {
+  background: rgba(229, 229, 234, 0.85);
+}
+
+/* Timeline bubble header */
+.timeline-bubble-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  font-size: 0.65rem;
+}
+
+.timeline-bubble-user {
+  font-weight: 600;
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+.timeline-bubble-time {
+  opacity: 0.7;
+  font-size: 0.6rem;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-top: 3px;
+}
+
+.timeline-bubble-content {
+  margin-bottom: 1px;
+}
+
+.timeline-bubble-duration {
+  text-align: right;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  margin-top: 1px;
+}
+
+/* Timeline bubble actions */
+.timeline-bubble-actions {
+  position: absolute;
+  right: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.timeline-bubble:hover .timeline-bubble-actions {
+  opacity: 1;
+}
+
+.timeline-bubble-action-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-bubble-action-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Date divider for timeline */
+.timeline-date-divider {
+  font-weight: 600;
+  color: #8b91a0;
+  padding: 16px 0 8px;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+  margin-left: -16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .timeline-opposite-content {
+    max-width: 80px;
+    font-size: 0.65rem;
+    padding: 8px 8px;
+  }
+  
+  .timeline-content {
+    padding: 0 8px;
+  }
+  
+  .timeline-bubble {
+    max-width: 100%;
+  }
+} 
